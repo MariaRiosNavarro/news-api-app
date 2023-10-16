@@ -189,12 +189,20 @@ input[type="submit"],
   form {
     width: 50%;
   }
+
+  .card {
+    max-width: 49vw;
+  }
 }
 
 @media screen and (max-width: 500px) {
   .output-wrapper {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .card {
+    max-width: 90vw;
   }
 
   .forms-wrapper {
