@@ -2,9 +2,15 @@ import { api_key } from "/config.js";
 import { countries } from "/assets/db/countries.js";
 import { languages } from "/assets/db/languages.js";
 
+const inputQueryEverything = document.querySelector('[data-js="query"]');
+const inputQueryHeadlines = document.querySelector('[data-js="query2"]');
 const selectLanguage = document.querySelector('[data-js="select-language"]');
 const selectCountry = document.querySelector('[data-js="select-country"]');
 const selectType = document.querySelector('[data-js="select-type"]');
+const buttonEverything = document.querySelector('[data-js="button"]');
+const buttonHeadlines = document.querySelector('[data-js="button2"]');
+const formEverything = document.querySelector('[data-js="form"]');
+const formHeadlines = document.querySelector('[data-js="form2"]');
 
 // create the options dynamically for language
 
@@ -13,11 +19,10 @@ languages.forEach((language) => {
   optionLanguage.value = language.language;
   optionLanguage.setAttribute("name", "languages");
   optionLanguage.textContent = language.language;
-  language.language === "Deutsch"
-    ? optionLanguage.setAttribute("selected", "selected")
-    : "";
+  if (language.language === "Deutsch") {
+    optionLanguage.setAttribute("selected", "selected");
+  }
   selectLanguage.appendChild(optionLanguage);
-  console.log(selectLanguage);
 });
 
 // create the options dynamically for country
@@ -31,19 +36,74 @@ countries.forEach((country) => {
     ? optionCountry.setAttribute("selected", "selected")
     : "";
   selectCountry.appendChild(optionCountry);
-
-  console.log(selectCountry);
 });
 
-// var url =
-//   "https://newsapi.org/v2/everything?" +
-//   "q=Samsung&" +
-//   "from=2023-01-16&" +
-//   "sortBy=popularity&" +
-//   `apiKey=${api_key}`;
+// work Variables
 
-// var req = new Request(url);
+let query, query2, language, country, type;
 
-// fetch(req).then(function (response) {
-//   console.log(response.json());
-// });
+// Eventlistener for euch buttons
+
+formEverything.addEventListener("submit", () => {
+  event.preventDefault();
+  let queryValue = inputQueryEverything.value;
+  query = queryValue.toLowerCase();
+  language = selectLanguage.value;
+  let languageCode;
+  languages.filter((value) => {
+    if (value.language === language) return (languageCode = value.code);
+  });
+
+  type = selectType.value;
+
+  console.log(query, languageCode, type);
+
+  let urlEverything =
+    `https://newsapi.org/v2/everything?` +
+    `q=${query}&` +
+    `language=${languageCode}&` +
+    `sortBy=${type}&` +
+    `apiKey=${api_key}`;
+
+  fetch(urlEverything)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error("Error Message", error);
+    });
+});
+
+formHeadlines.addEventListener("submit", () => {
+  event.preventDefault();
+  let query2Value = inputQueryHeadlines.value;
+  query2 = query2Value.toLowerCase();
+  country = selectCountry.value;
+  console.log(query2, country, typeof query2);
+  let countryCode;
+  countries.filter((value) => {
+    if (value.country === country) return (countryCode = value.code);
+  });
+
+  console.log(countryCode);
+
+  //--Adress
+  let urlHeadlines =
+    `https://newsapi.org/v2/top-headlines?` +
+    `q=${query2}&` +
+    `country=${countryCode}&` +
+    `apiKey=${api_key}`;
+
+  console.log(urlHeadlines);
+
+  //--fetch
+  fetch(urlHeadlines)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error("Error Message", error);
+    });
+});

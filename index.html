@@ -10,20 +10,15 @@
     <div class="wrapper">
       <header><h1>News App</h1></header>
       <main>
-        <form class="formular">
+        <form class="formular" data-js="form">
+          <h2>Everything</h2>
           <label for="query">Search term:</label>
-          <input type="text" name="query" id="query" />
+          <input type="text" name="query" id="query" data-js="query" />
           <label for="languages">Language:</label>
           <select
             name="languages"
             id="languages"
             data-js="select-language"
-          ></select>
-          <label for="countries">Country:</label>
-          <select
-            name="countries"
-            id="countries"
-            data-js="select-country"
           ></select>
           <label for="type">Sort by:</label>
           <select name="type" id="type" data-js="select-type">
@@ -31,8 +26,19 @@
             <option value="popularity" name="type">Popularity</option>
             <option value="publishedAt" name="type">Newest</option>
           </select>
-
-          <input type="submit" value="search" />
+          <input type="submit" value="search" data-js="button" />
+        </form>
+        <form class="formular" data-js="form2">
+          <h2>Headlines</h2>
+          <label for="query2">Search term:</label>
+          <input type="text" name="query2" id="query2" data-js="query2" />
+          <label for="countries">Country:</label>
+          <select
+            name="countries"
+            id="countries"
+            data-js="select-country"
+          ></select>
+          <input type="submit" value="search" data-js="button2" />
         </form>
       </main>
       <footer></footer>
