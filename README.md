@@ -1,5 +1,9 @@
 # news-api-app
 
+# News API : https://newsapi.org/
+
+I could not deploy this project, as this api is only free if it is not deployed.
+
 # Desktop
 
 <div>
