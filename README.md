@@ -27,6 +27,7 @@ I could not deploy this project, as this api is only free if it is not deployed.
 # Mobile
 
 <div>
-<img src="/assets/img/readme6.png" alt="readme" width="200px">
-<img src="/assets/img/readme7.png" alt="readme" width="200px">
+<img src="/assets/img/readme6.png" alt="readme" width="350px">
+<img src="/assets/img/readme7.png" alt="readme" width="350px">
+<img src="/assets/img/readme12.png" alt="readme" width="350px">
 </div>
