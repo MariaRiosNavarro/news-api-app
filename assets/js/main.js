@@ -7,8 +7,6 @@ const inputQueryHeadlines = document.querySelector('[data-js="query2"]');
 const selectLanguage = document.querySelector('[data-js="select-language"]');
 const selectCountry = document.querySelector('[data-js="select-country"]');
 const selectType = document.querySelector('[data-js="select-type"]');
-const buttonEverything = document.querySelector('[data-js="button"]');
-const buttonHeadlines = document.querySelector('[data-js="button2"]');
 const formEverything = document.querySelector('[data-js="form"]');
 const formHeadlines = document.querySelector('[data-js="form2"]');
 
