@@ -82,7 +82,7 @@ formEverything.addEventListener("submit", () => {
         const card = document.createElement("article");
         card.classList.add("card");
         const goTo = () => {
-          //   window.open(info.url);
+          window.open(info.url);
         };
         card.innerHTML = `<h3 class="card-title">${info.title}</h3>
           <p class="card-description">${
@@ -92,7 +92,7 @@ formEverything.addEventListener("submit", () => {
           <img src=${
             info.urlToImage ? info.urlToImage : noimage
           } alt="" class="card-image" target="_blank"/></div>
-          <button class="card-button" onclick="${goTo()}">to the article</button>`;
+          <button class="card-button" onclick="goTo()">to the article</button>`;
         output.appendChild(card);
         inputQueryEverything.value = "";
         inputQueryEverything.focus();
@@ -134,7 +134,7 @@ formHeadlines.addEventListener("submit", () => {
         const card = document.createElement("article");
         card.classList.add("card");
         const goTo = () => {
-          //   window.open(info.url);
+          window.open(info.url);
         };
         card.innerHTML = `
               <h3 class="card-title">${info.title}</h3>
