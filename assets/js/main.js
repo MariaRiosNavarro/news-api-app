@@ -81,9 +81,7 @@ formEverything.addEventListener("submit", () => {
       everythingData.forEach((info) => {
         const card = document.createElement("article");
         card.classList.add("card");
-        const goTo = () => {
-          window.open(info.url);
-        };
+
         card.innerHTML = `<h3 class="card-title">${info.title}</h3>
           <p class="card-description">${
             info.description ? info.description : nodescription
@@ -92,7 +90,9 @@ formEverything.addEventListener("submit", () => {
           <img src=${
             info.urlToImage ? info.urlToImage : noimage
           } alt="" class="card-image" target="_blank"/></div>
-          <button class="card-button" onclick="goTo()">to the article</button>`;
+          <button class="card-button" onclick="window.open('${
+            info.url
+          }')">to the article</button>`;
         output.appendChild(card);
         inputQueryEverything.value = "";
         inputQueryEverything.focus();
@@ -120,9 +120,6 @@ formHeadlines.addEventListener("submit", () => {
     `q=${query2}&` +
     `country=${countryCode}&` +
     `apiKey=${api_key}`;
-
-  console.log(urlHeadlines);
-
   //--fetch
   fetch(urlHeadlines)
     .then((response) => response.json())
@@ -133,9 +130,6 @@ formHeadlines.addEventListener("submit", () => {
       headlinesData.forEach((info) => {
         const card = document.createElement("article");
         card.classList.add("card");
-        const goTo = () => {
-          window.open(info.url);
-        };
         card.innerHTML = `
               <h3 class="card-title">${info.title}</h3>
               <p class="card-description">${
@@ -146,7 +140,9 @@ formHeadlines.addEventListener("submit", () => {
                   info.urlToImage ? info.urlToImage : noimage
                 }" alt="" class="card-image" target="_blank" />
               </div>
-              <button class="card-button" onclick="goTo()">to the article</button>
+              <button class="card-button" onclick="window.open('${
+                info.url
+              }')">to the article</button>
             `;
 
         output.appendChild(card);

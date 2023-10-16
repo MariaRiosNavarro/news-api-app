@@ -149,12 +149,10 @@ input[type="submit"],
   text-align: center;
   border-bottom: 1px solid var(--color);
   font-size: 2rem;
-  background-color: green;
 }
 
 .card-description {
   font-size: 1.7rem;
-  background-color: red;
 }
 
 .card-image {
