@@ -9,6 +9,7 @@ const selectCountry = document.querySelector('[data-js="select-country"]');
 const selectType = document.querySelector('[data-js="select-type"]');
 const formEverything = document.querySelector('[data-js="form"]');
 const formHeadlines = document.querySelector('[data-js="form2"]');
+const output = document.querySelector('[data-js="output"]');
 
 // create the options dynamically for language
 
@@ -40,6 +41,8 @@ countries.forEach((country) => {
 
 let query, query2, language, country, type;
 
+let noimage = "/assets/img/noimage.png";
+
 // Eventlistener for each buttons
 
 formEverything.addEventListener("submit", () => {
@@ -53,7 +56,6 @@ formEverything.addEventListener("submit", () => {
   });
 
   type = selectType.value;
-  pageSize;
 
   console.log(query, languageCode, type);
   //--Adress
@@ -67,8 +69,27 @@ formEverything.addEventListener("submit", () => {
   //--fetch
   fetch(urlEverything)
     .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
+    .then((everything) => {
+      console.log(everything);
+      let everythingData = everything.articles;
+
+      everythingData.forEach((info) => {
+        const card = document.createElement("article");
+        card.classList.add("card");
+        const goTo = () => {
+          //   window.open(info.url);
+        };
+        card.innerHTML = `<h3 class="card-title">${info.title}</h3>
+          <p class="card-description">${info.description}</p>
+          <div class="img-wrapper">
+          <img src=${
+            info.urlToImage
+          } alt="" class="card-image" target="_blank"/></div>
+          <button class="card-button" onclick="${goTo()}">to the article</button>`;
+        output.appendChild(card);
+        inputQueryEverything.value = "";
+        inputQueryEverything.focus();
+      });
     })
     .catch((error) => {
       console.error("Error Message", error);
@@ -100,8 +121,31 @@ formHeadlines.addEventListener("submit", () => {
   //--fetch
   fetch(urlHeadlines)
     .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
+    .then((headlines) => {
+      console.log(headlines);
+      let headlinesData = headlines.articles;
+
+      headlinesData.forEach((info) => {
+        const card = document.createElement("article");
+        card.classList.add("card");
+        const goTo = () => {
+          //   window.open(info.url);
+        };
+        card.innerHTML = `
+              <h3 class="card-title">${info.title}</h3>
+              <p class="card-description">${info.description}</p>
+              <div class="img-wrapper">
+                <img src="${
+                  info.urlToImage ? info.urlToImage : noimage
+                }" alt="" class="card-image" target="_blank" />
+              </div>
+              <button class="card-button" onclick="goTo()">to the article</button>
+            `;
+
+        output.appendChild(card);
+        inputQueryHeadlines.value = "";
+        inputQueryHeadlines.focus();
+      });
     })
     .catch((error) => {
       console.error("Error Message", error);

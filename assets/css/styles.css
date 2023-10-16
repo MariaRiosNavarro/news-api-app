@@ -129,6 +129,7 @@ input[type="submit"],
   border: 1px solid var(--color);
   border-radius: 8px;
   padding: 1rem 2rem 2rem 2rem;
+  position: relative;
 }
 
 .card-title {
@@ -144,11 +145,21 @@ input[type="submit"],
 .card-image {
   width: 100%;
   width: 100%;
+  margin-bottom: 2rem;
+}
+
+.img-wrapper {
+  max-width: 100%;
+  object-fit: cover;
+  max-height: 300px;
+  min-height: 300px;
 }
 
 .card-button {
   border-radius: 5px;
   border: none;
+  position: absolute;
+  bottom: 1rem;
 }
 
 @media screen and (max-width: 860px) {
@@ -169,7 +180,7 @@ input[type="submit"],
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .output-wrapper {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
