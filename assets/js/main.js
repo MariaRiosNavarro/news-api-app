@@ -5,7 +5,7 @@ var url =
   "q=Samsung&" +
   "from=2023-01-16&" +
   "sortBy=popularity&" +
-  "apiKey=97e29d4302af4f009566d77739fd9f0a";
+  `apiKey=${api_key}`;
 
 var req = new Request(url);
 
