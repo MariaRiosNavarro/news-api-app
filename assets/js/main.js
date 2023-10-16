@@ -48,7 +48,7 @@ let query, query2, language, country, type;
 
 let noimage = "/assets/img/noimage.png";
 let nodescription =
-  "There is no more information available here, if you want to know more click on the button below";
+  "There is no more information available here, if you want to know more click the button below.";
 
 // Eventlistener for each buttons
 
@@ -62,8 +62,8 @@ formEverything.addEventListener("submit", () => {
     if (value.language === language) return (languageCode = value.code);
   });
   type = selectType.value;
-  const api_key = "97e29d4302af4f009566d77739fd9f0a";
   //--Adress
+  const api_key = "97e29d4302af4f009566d77739fd9f0a";
   let urlEverything =
     `https://newsapi.org/v2/everything?` +
     `q=${query}&` +
@@ -72,10 +72,10 @@ formEverything.addEventListener("submit", () => {
     `pageSize=21&` +
     `apiKey=${api_key}`;
   //--fetch
+
   fetch(urlEverything)
     .then((response) => response.json())
     .then((everything) => {
-      console.log(everything);
       let everythingData = everything.articles;
 
       everythingData.forEach((info) => {
@@ -113,8 +113,8 @@ formHeadlines.addEventListener("submit", () => {
     if (value.country === country) return (countryCode = value.code);
   });
 
-  const api_key = "97e29d4302af4f009566d77739fd9f0a";
   //--Adress
+  const api_key = "97e29d4302af4f009566d77739fd9f0a";
   let urlHeadlines =
     `https://newsapi.org/v2/top-headlines?` +
     `q=${query2}&` +
