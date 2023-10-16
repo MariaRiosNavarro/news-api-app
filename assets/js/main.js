@@ -40,7 +40,7 @@ countries.forEach((country) => {
 
 let query, query2, language, country, type;
 
-// Eventlistener for euch buttons
+// Eventlistener for each buttons
 
 formEverything.addEventListener("submit", () => {
   event.preventDefault();
@@ -53,16 +53,18 @@ formEverything.addEventListener("submit", () => {
   });
 
   type = selectType.value;
+  pageSize;
 
   console.log(query, languageCode, type);
-
+  //--Adress
   let urlEverything =
     `https://newsapi.org/v2/everything?` +
     `q=${query}&` +
     `language=${languageCode}&` +
     `sortBy=${type}&` +
+    `pageSize=21&` +
     `apiKey=${api_key}`;
-
+  //--fetch
   fetch(urlEverything)
     .then((response) => response.json())
     .then((data) => {
