@@ -7,13 +7,36 @@
     <title>Document</title>
   </head>
   <body>
-    <header></header>
-    <main>
-      <input type="text" placeholder="search term" />
-      <select name="" id=""></select>
-      <select name="" id=""></select>
-    </main>
-    <footer></footer>
+    <div class="wrapper">
+      <header><h1>News App</h1></header>
+      <main>
+        <form class="formular">
+          <label for="query">Search term:</label>
+          <input type="text" name="query" id="query" />
+          <label for="languages">Language:</label>
+          <select
+            name="languages"
+            id="languages"
+            data-js="select-language"
+          ></select>
+          <label for="countries">Country:</label>
+          <select
+            name="countries"
+            id="countries"
+            data-js="select-country"
+          ></select>
+          <label for="type">Sort by:</label>
+          <select name="type" id="type" data-js="select-type">
+            <option value="relevancy" name="type" selected>Relevancy</option>
+            <option value="popularity" name="type">Popularity</option>
+            <option value="publishedAt" name="type">Newest</option>
+          </select>
+
+          <input type="submit" value="search" />
+        </form>
+      </main>
+      <footer></footer>
+    </div>
     <script src="./assets/js/main.js" type="module"></script>
   </body>
 </html>

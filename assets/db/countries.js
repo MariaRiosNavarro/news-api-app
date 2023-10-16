@@ -1,4 +1,4 @@
-[
+export const countries =[
   { "code": "ae", "country": "United Arab Emirates" },
   { "code": "ar", "country": "Argentina" },
   { "code": "at", "country": "Austria" },
@@ -53,4 +53,4 @@
   { "code": "us", "country": "United States" },
   { "code": "ve", "country": "Venezuela" },
   { "code": "za", "country": "South Africa" }
-]
+];

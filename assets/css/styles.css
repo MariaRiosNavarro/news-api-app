@@ -5,3 +5,61 @@
   margin: 0;
   padding: 0;
 }
+
+html {
+  font-size: 62.5%;
+  font-family: Helvetica;
+}
+
+h1 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-align: center;
+  padding: 2rem;
+}
+
+.wrapper {
+  background-color: bisque;
+  height: 100%;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+form {
+  padding: 0 5rem;
+}
+
+label,
+input,
+select {
+  border-radius: 5px;
+  border: none;
+}
+
+input,
+select {
+  padding: 0.5rem 1rem;
+}
+
+label,
+input[type="submit"] {
+  display: block;
+  margin: 1rem 0;
+}
+label {
+  font-weight: 700;
+}
+
+input[type="submit"] {
+  padding: 0.5rem 3rem;
+  margin-top: 1rem;
+  background-color: rgb(175, 146, 106);
+  color: azure;
+  letter-spacing: 0.2rem;
+}
