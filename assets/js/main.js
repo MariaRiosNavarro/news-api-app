@@ -1,4 +1,4 @@
-// import { api_key } from "/config.js";
+import { api_key } from "/config.js";
 import { countries } from "/assets/db/countries.js";
 import { languages } from "/assets/db/languages.js";
 
@@ -63,7 +63,7 @@ formEverything.addEventListener("submit", () => {
   });
   type = selectType.value;
   //--Adress
-  const api_key = "97e29d4302af4f009566d77739fd9f0a";
+
   let urlEverything =
     `https://newsapi.org/v2/everything?` +
     `q=${query}&` +
@@ -114,7 +114,7 @@ formHeadlines.addEventListener("submit", () => {
   });
 
   //--Adress
-  const api_key = "97e29d4302af4f009566d77739fd9f0a";
+
   let urlHeadlines =
     `https://newsapi.org/v2/top-headlines?` +
     `q=${query2}&` +
