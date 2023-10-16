@@ -10,6 +10,11 @@ const selectType = document.querySelector('[data-js="select-type"]');
 const formEverything = document.querySelector('[data-js="form"]');
 const formHeadlines = document.querySelector('[data-js="form2"]');
 const output = document.querySelector('[data-js="output"]');
+const restart = document.querySelector('[data-js="restart"]');
+
+restart.addEventListener("click", () => {
+  window.location.reload();
+});
 
 // create the options dynamically for language
 
@@ -42,6 +47,8 @@ countries.forEach((country) => {
 let query, query2, language, country, type;
 
 let noimage = "/assets/img/noimage.png";
+let nodescription =
+  "There is no more information available here, if you want to know more click on the button below";
 
 // Eventlistener for each buttons
 
@@ -54,10 +61,7 @@ formEverything.addEventListener("submit", () => {
   languages.filter((value) => {
     if (value.language === language) return (languageCode = value.code);
   });
-
   type = selectType.value;
-
-  console.log(query, languageCode, type);
   //--Adress
   let urlEverything =
     `https://newsapi.org/v2/everything?` +
@@ -80,10 +84,12 @@ formEverything.addEventListener("submit", () => {
           //   window.open(info.url);
         };
         card.innerHTML = `<h3 class="card-title">${info.title}</h3>
-          <p class="card-description">${info.description}</p>
+          <p class="card-description">${
+            info.description ? info.description : nodescription
+          }</p>
           <div class="img-wrapper">
           <img src=${
-            info.urlToImage
+            info.urlToImage ? info.urlToImage : noimage
           } alt="" class="card-image" target="_blank"/></div>
           <button class="card-button" onclick="${goTo()}">to the article</button>`;
         output.appendChild(card);
@@ -101,7 +107,6 @@ formHeadlines.addEventListener("submit", () => {
   let query2Value = inputQueryHeadlines.value;
   query2 = query2Value.toLowerCase();
   country = selectCountry.value;
-  console.log(query2, country, typeof query2);
   let countryCode;
   countries.filter((value) => {
     if (value.country === country) return (countryCode = value.code);
@@ -133,7 +138,9 @@ formHeadlines.addEventListener("submit", () => {
         };
         card.innerHTML = `
               <h3 class="card-title">${info.title}</h3>
-              <p class="card-description">${info.description}</p>
+              <p class="card-description">${
+                info.description ? info.description : nodescription
+              }</p>
               <div class="img-wrapper">
                 <img src="${
                   info.urlToImage ? info.urlToImage : noimage

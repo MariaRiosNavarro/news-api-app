@@ -9,8 +9,8 @@
 :root {
   --color: #344955;
   --light-color: rgb(255, 251, 240);
-  --bg-color: rgb(247, 236, 222);
-  --btn-color: #f9aa33;
+  --bg-color: rgb(245, 241, 236);
+  --btn-color: #faa422;
   --text-color: #232f33;
 }
 
@@ -19,10 +19,17 @@ html {
   font-family: Helvetica;
 }
 
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
 h1 {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   text-align: center;
-  padding: 2rem;
 }
 
 .wrapper {
@@ -101,16 +108,21 @@ option {
 }
 
 input[type="submit"],
-.card-button {
-  padding: 0.5rem 3rem;
+.card-button,
+.restart {
+  padding: 0.7rem 3rem;
   margin-top: 2rem;
   background-color: var(--btn-color);
   color: var(--text-color);
   text-transform: uppercase;
   font-weight: 900;
   letter-spacing: 0.2rem;
+  border: none;
 }
 
+.restart {
+  border-radius: 5px;
+}
 .output-wrapper {
   margin: 0 auto;
   max-width: 960px;
